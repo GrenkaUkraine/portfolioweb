@@ -37,7 +37,7 @@ export default function HeroSection() {
         </Text>
         <nav className="w-full flex flex-col gap-vh-sm">
           {NAV_LINKS.map((item) => (
-            <Link
+            <a
               key={item.id}
               href={item.href}
               className="w-full inline-flex gap-3 items-center group"
@@ -51,7 +51,7 @@ export default function HeroSection() {
               >
                 {item.label}
               </Text>
-            </Link>
+            </a>
           ))}
         </nav>
       </div>
