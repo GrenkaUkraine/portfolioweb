@@ -5,6 +5,7 @@ import "./globals.css";
 const tasaOrbiter = TASA_Orbiter({
   variable: "--font-sans",
   subsets: ["latin"],
+  adjustFontFallback: false,
 });
 
 const azeretMono = Azeret_Mono({
@@ -27,7 +28,9 @@ export default function RootLayout({
       lang="en"
       className={`${tasaOrbiter.variable} ${azeretMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-bg text-fg font-sans selection:bg-fg selection:text-bg">
+      <body
+        className={`${tasaOrbiter.variable} ${azeretMono.variable} min-h-full bg-bg text-fg font-sans selection:bg-fg selection:text-bg`}
+      >
         {children}
       </body>
     </html>

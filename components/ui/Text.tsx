@@ -2,16 +2,16 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 const variantsMap = {
-  h1: "text-style-h1",
-  h2: "text-style-h2",
-  h3: "text-style-h3",
-  h4: "text-style-h4",
-  buttons: "text-style-buttons",
-  system: "text-style-system",
-  "list-nums": "text-style-list-nums",
-  "list-link": "text-style-list-link",
-  "cards-description": "text-style-cards-description",
-  tag: "text-style-tag",
+  h1: "typography-h1",
+  h2: "typography-h2",
+  h3: "typography-h3",
+  h4: "typography-h4",
+  buttons: "typography-buttons",
+  system: "typography-system",
+  "list-nums": "typography-list-nums",
+  "list-link": "typography-list-link",
+  "cards-description": "typography-cards-description",
+  tag: "typography-tag",
 } as const;
 
 const colorMap = {

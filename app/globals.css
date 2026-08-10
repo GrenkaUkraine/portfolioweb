@@ -6,8 +6,8 @@
   --color-fg-70: rgba(255, 255, 255, 0.7);
   --color-fg-50: rgba(255, 255, 255, 0.5);
 
-  --font-sans: var(--font-sans), sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 
   --spacing-page: 16px;
   --spacing-page-md: 40px;
@@ -18,55 +18,52 @@
   color: var(--color-fg);
 }
 
-@layer utilities {
-  /* Typography */
-  .text-style-h1 {
-    @apply font-sans text-[42px] leading-[0.9] font-bold uppercase md:text-[112px];
-  }
+/* Typography utilities */
+@utility typography-h1 {
+  @apply font-sans text-[42px] leading-[0.9] font-extrabold uppercase md:text-[112px];
+}
 
-  .text-style-h2 {
-    @apply font-sans text-[28px] leading-[1] font-bold uppercase md:text-[48px];
-  }
+@utility typography-h2 {
+  @apply font-sans text-[28px] leading-[1] font-extrabold uppercase md:text-[48px];
+}
 
-  .text-style-h3 {
-    @apply font-sans text-[22px] leading-[1] font-bold uppercase md:text-[32px];
-  }
+@utility typography-h3 {
+  @apply font-sans text-[22px] leading-[1] font-extrabold uppercase md:text-[32px];
+}
 
-  .text-style-h4 {
-    @apply font-sans text-[16px] leading-[0.9] font-bold md:text-[20px];
-  }
+@utility typography-h4 {
+  @apply font-mono text-[16px] leading-[0.9] font-medium md:text-[20px];
+}
 
-  .text-style-buttons {
-    @apply font-sans text-[14px] leading-[1] font-bold uppercase md:text-[16px];
-  }
+@utility typography-buttons {
+  @apply font-sans text-[14px] leading-[1] font-bold uppercase md:text-[16px];
+}
 
-  .text-style-system {
-    @apply font-mono text-[11px] leading-[1] md:text-[13px];
-  }
+@utility typography-system {
+  @apply font-mono text-[11px] leading-[1] font-medium md:text-[13px];
+}
 
-  .text-style-list-nums {
-    @apply font-mono text-[16px] leading-[1.1] md:text-[20px];
-  }
+@utility typography-list-nums {
+  @apply font-mono text-[16px] leading-[1.1] md:text-[20px];
+}
 
-  .text-style-list-link {
-    @apply font-sans text-[24px] leading-[1.1] font-bold md:text-[40px];
-  }
+@utility typography-list-link {
+  @apply font-mono text-[24px] leading-[1.1] font-semibold md:text-[40px];
+}
 
-  .text-style-cards-description {
-    @apply font-mono text-[13px] leading-[1.2] md:text-[16px] md:leading-[1];
-  }
+@utility typography-cards-description {
+  @apply font-mono text-[13px] leading-[1.2] font-medium md:text-[16px] md:leading-[1];
+}
 
-  .text-style-tag {
-    @apply font-mono text-[11px] leading-[1] uppercase md:text-[13px];
-  }
+@utility typography-tag {
+  @apply font-mono text-[11px] leading-[1] uppercase md:text-[13px];
+}
 
+/* Layout utilities */
+@utility layout-page {
+  @apply p-[var(--spacing-page)] md:p-[var(--spacing-page-md)];
+}
 
-  /* Spacing */
-  .layout-page {
-    @apply p-page md:p-page-md;
-  }
-
-  .layout-gap {
-    @apply gap-4 md:gap-6;
-  }
+@utility layout-gap {
+  @apply gap-4 md:gap-6;
 }
