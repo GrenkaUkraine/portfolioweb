@@ -83,3 +83,26 @@ html {
 @utility gap-vh-lg {
   gap: clamp(16px, 5vh, 48px);
 }
+
+/* Scrollbar utilities */
+@utility custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-fg-50) transparent;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-fg-50);
+    border-radius: 0;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-fg);
+  }
+}
