@@ -13,6 +13,10 @@
   --spacing-page-md: 40px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   background-color: var(--color-bg);
   color: var(--color-fg);
