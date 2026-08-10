@@ -6,7 +6,7 @@ import SectionContainer from "@/components/sections/SectionContainer";
 
 export default function HeroSection() {
   return (
-    <SectionContainer>
+    <SectionContainer id="hero">
       <div className="grid w-full grid-cols-12 layout-gap">
         <div className="col-span-8 flex flex-col gap-vh-sm">
           <div>
