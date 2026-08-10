@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-fg-70: rgba(255, 255, 255, 0.7);
+  --color-fg-50: rgba(255, 255, 255, 0.5);
+
+  --font-sans: var(--font-sans), sans-serif;
+  --font-mono: var(--font-mono), monospace;
+
+  --spacing-page: 16px;
+  --spacing-page-md: 40px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  /* Typography */
+  .text-style-h1 {
+    @apply font-sans text-[42px] leading-[0.9] font-bold uppercase md:text-[112px];
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .text-style-h2 {
+    @apply font-sans text-[28px] leading-[1] font-bold uppercase md:text-[48px];
+  }
+
+  .text-style-h3 {
+    @apply font-sans text-[22px] leading-[1] font-bold uppercase md:text-[32px];
+  }
+
+  .text-style-h4 {
+    @apply font-sans text-[16px] leading-[0.9] font-bold md:text-[20px];
+  }
+
+  .text-style-buttons {
+    @apply font-sans text-[14px] leading-[1] font-bold uppercase md:text-[16px];
+  }
+
+  .text-style-system {
+    @apply font-mono text-[11px] leading-[1] md:text-[13px];
+  }
+
+  .text-style-list-nums {
+    @apply font-mono text-[16px] leading-[1.1] md:text-[20px];
+  }
+
+  .text-style-list-link {
+    @apply font-sans text-[24px] leading-[1.1] font-bold md:text-[40px];
+  }
+
+  .text-style-cards-description {
+    @apply font-mono text-[13px] leading-[1.2] md:text-[16px] md:leading-[1];
+  }
+
+  .text-style-tag {
+    @apply font-mono text-[11px] leading-[1] uppercase md:text-[13px];
+  }
+
+
+  /* Spacing */
+  .layout-page {
+    @apply p-page md:p-page-md;
+  }
+
+  .layout-gap {
+    @apply gap-4 md:gap-8;
+  }
 }
