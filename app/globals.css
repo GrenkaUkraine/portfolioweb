@@ -67,3 +67,15 @@
 @utility layout-gap {
   @apply gap-4 md:gap-6;
 }
+
+@utility gap-vh-sm {
+  gap: clamp(8px, 2vh, 16px);
+}
+
+@utility gap-vh-md {
+  gap: clamp(12px, 2vh, 24px);
+}
+
+@utility gap-vh-lg {
+  gap: clamp(16px, 5vh, 48px);
+}
