@@ -28,7 +28,7 @@ const defaultTagsMap = {
   buttons: "span",
   system: "p",
   "list-nums": "span",
-  "list-link": "a",
+  "list-link": "span",
   "cards-description": "p",
   tag: "span",
 } as const;
