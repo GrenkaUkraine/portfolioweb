@@ -2,10 +2,11 @@ import Text from "@/components/ui/Text";
 import { NAV_LINKS, SOCIAL_LINKS } from "@/config/links";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
+import SectionContainer from "@/components/sections/SectionContainer";
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen md:h-screen md:snap-start flex flex-col items-center justify-between layout-page pb-[12px] md:pb-[36px]">
+    <SectionContainer>
       <div className="grid w-full grid-cols-12 layout-gap">
         <div className="col-span-8 flex flex-col gap-vh-sm">
           <div>
@@ -64,6 +65,6 @@ export default function HeroSection() {
           Or scroll down
         </Text>
       </a>
-    </section>
+    </SectionContainer>
   );
 }
