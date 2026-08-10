@@ -67,6 +67,6 @@
   }
 
   .layout-gap {
-    @apply gap-4 md:gap-8;
+    @apply gap-4 md:gap-6;
   }
 }
