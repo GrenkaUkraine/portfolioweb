@@ -65,7 +65,15 @@ export default function SectionContainer({
           {note && <Text variant="buttons">{note}</Text>}
         </header>
       )}
-      {children}
+
+      {hasHeader ? (
+        <div className="w-full flex-1 flex flex-col justify-center min-h-0">
+          {children}
+        </div>
+      ) : (
+        children
+      )}
+
       {hasHeader && (
         <footer className="w-full flex items-center justify-between">
           <Text variant="tag" color="muted">
