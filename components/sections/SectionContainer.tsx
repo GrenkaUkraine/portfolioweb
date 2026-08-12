@@ -30,7 +30,7 @@ export default function SectionContainer({
         className
       )}
     >
-      <div className="w-full flex-1 flex flex-col justify-center min-h-0 max-h-full overflow-hidden">
+      <div className="w-full flex-1 flex flex-col justify-center min-h-0 max-h-full">
         {children}
       </div>
     </section>
