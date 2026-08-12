@@ -80,7 +80,10 @@ export default function Navbar() {
     >
       <header
         ref={headerRef}
-        className="w-full flex items-center gap-5 pointer-events-auto layout-page pb-8 bg-bg"
+        className={cn(
+          "w-full flex items-center gap-5 layout-page pb-8 bg-bg",
+          isHero ? "pointer-events-none" : "pointer-events-auto"
+        )}
       >
         <div className="flex items-center gap-2">
           <Text variant="buttons" color="subtle">
@@ -96,7 +99,10 @@ export default function Navbar() {
 
       <footer
         ref={footerRef}
-        className="w-full flex items-center justify-between pointer-events-auto layout-page pt-8 bg-bg"
+        className={cn(
+          "w-full flex items-center justify-between layout-page pt-8 bg-bg",
+          isHero ? "pointer-events-none" : "pointer-events-auto"
+        )}
       >
         <Text variant="tag" color="muted">
           Scroll{" "}
