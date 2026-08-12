@@ -106,3 +106,12 @@ html {
     background-color: var(--color-fg);
   }
 }
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
