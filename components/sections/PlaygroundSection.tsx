@@ -1,7 +1,7 @@
 "use client";
 
 import SectionContainer from "@/components/sections/SectionContainer";
-import { PLAYGROUND_PROJECTS } from "@/config/links";
+import { PLAYGROUND_PROJECTS } from "@/config/constants";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";

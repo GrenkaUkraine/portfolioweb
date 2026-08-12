@@ -1,5 +1,5 @@
 import SectionContainer from "@/components/sections/SectionContainer";
-import { FEATURED_PROJECTS } from "@/config/links";
+import { FEATURED_PROJECTS } from "@/config/constants";
 import Text from "@/components/ui/Text";
 import Link from "next/link";
 import ProjectCard from "@/components/ui/ProjectCard";

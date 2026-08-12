@@ -1,5 +1,5 @@
 import Text from "@/components/ui/Text";
-import { NAV_LINKS, SOCIAL_LINKS } from "@/config/links";
+import { NAV_LINKS, SOCIAL_LINKS } from "@/config/constants";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import SectionContainer from "@/components/sections/SectionContainer";

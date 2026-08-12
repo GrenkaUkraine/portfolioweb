@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import Text from "@/components/ui/Text";
-import { NAV_LINKS } from "@/config/links";
+import { NAV_LINKS } from "@/config/constants";
 
 export interface SectionContainerProps {
   children: React.ReactNode;
