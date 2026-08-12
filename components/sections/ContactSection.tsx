@@ -4,6 +4,7 @@ import Text from "@/components/ui/Text";
 import Link from "next/link";
 import ProjectCard from "@/components/ui/ProjectCard";
 import Button from "@/components/ui/Button";
+import UkraineTime from "@/components/contact/UkraineTime";
 
 export default function ContactSection() {
   return (
@@ -49,12 +50,7 @@ export default function ContactSection() {
         </div>
 
         <div className="col-span-4 flex flex-col justify-between items-end h-full">
-          <div className="flex flex-col gap-3 items-end">
-            <Text variant="cards-description" color="muted">
-              I&#39;m in <b className="text-fg">Ukraine (UTC+3)</b>:
-            </Text>
-            <Text variant="h1">14:58</Text>
-          </div>
+          <UkraineTime />
           <div className="flex flex-col gap-3 w-full justify-end">
             {SOCIAL_LINKS.map((link) => (
               <Button
