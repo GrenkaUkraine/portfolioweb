@@ -1,8 +1,7 @@
 import SectionContainer from "@/components/sections/SectionContainer";
-import { FEATURED_PROJECTS, SOCIAL_LINKS } from "@/config/constants";
+import { SOCIAL_LINKS } from "@/config/constants";
 import Text from "@/components/ui/Text";
 import Link from "next/link";
-import ProjectCard from "@/components/ui/ProjectCard";
 import Button from "@/components/ui/Button";
 import UkraineTime from "@/components/contact/UkraineTime";
 
