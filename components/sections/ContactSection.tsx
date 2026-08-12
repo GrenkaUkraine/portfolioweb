@@ -7,14 +7,8 @@ import UkraineTime from "@/components/contact/UkraineTime";
 
 export default function ContactSection() {
   return (
-    <SectionContainer
-      id="contact"
-      index="04"
-      title="Contact"
-      note=""
-      activeSection="contact"
-    >
-      <div className="grid w-full h-full grid-cols-12 layout-gap">
+    <SectionContainer id="contact">
+      <div className="grid w-full h-full max-h-full grid-cols-12 layout-gap">
         <div className="col-span-8 flex flex-col gap-vh-lg">
           <div>
             <Text variant="h1" className="mb-3">

@@ -25,6 +25,17 @@ export default function PlaygroundSection() {
   );
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("section-note-change", {
+          detail: {
+            sectionId: "playground",
+            note: `Page ${currentPage}/${pages.length}`,
+          },
+        })
+      );
+    }
+
     const container = containerRef.current;
     if (!container) return;
 
@@ -40,7 +51,7 @@ export default function PlaygroundSection() {
     return () => {
       container.removeEventListener("wheel", handleWheel);
     };
-  }, []);
+  }, [currentPage, pages.length]);
 
   const blockScroll = () => {
     isBlockingRef.current = true;
@@ -53,14 +64,11 @@ export default function PlaygroundSection() {
   };
 
   return (
-    <SectionContainer
-      id="playground"
-      index="02"
-      title="Playground"
-      note={`Page ${currentPage}/${pages.length}`}
-      activeSection="playground"
-    >
-      <div ref={containerRef} className="relative w-full h-full min-h-0">
+    <SectionContainer id="playground">
+      <div
+        ref={containerRef}
+        className="relative w-full h-full min-h-0 max-h-full "
+      >
         <Swiper
           direction="horizontal"
           slidesPerView={1}
@@ -75,7 +83,8 @@ export default function PlaygroundSection() {
             blockScroll();
           }}
           onSlideChangeTransitionEnd={(swiper: SwiperType) => {
-            setCurrentPage(swiper.activeIndex + 1);
+            const page = swiper.activeIndex + 1;
+            setCurrentPage(page);
           }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper;

@@ -1,5 +1,17 @@
 import { Project } from "@/types";
 
+export const SECTIONS_CONFIG: Record<
+  string,
+  { index: string; title: string; note?: string }
+> = {
+  work: { index: "01", title: "Work", note: "3 Featured Projects" },
+  playground: { index: "02", title: "Playground" },
+  stack: { index: "03", title: "Stack", note: "" },
+  contact: { index: "04", title: "Contact", note: "" },
+};
+
+export const SECTION_IDS = ["hero", "work", "playground", "stack", "contact"];
+
 export const SOCIAL_LINKS = [
   {
     title: "Codebase",

@@ -3,15 +3,19 @@ import WorkSection from "@/components/sections/WorkSection";
 import PlaygroundSection from "@/components/sections/PlaygroundSection";
 import StackSection from "@/components/sections/StackSection";
 import ContactSection from "@/components/sections/ContactSection";
+import Navbar from "@/components/navigation/Navbar";
 
 export default function Home() {
   return (
-    <main className="w-full md:h-screen md:overflow-y-auto md:snap-y md:snap-mandatory custom-scrollbar scroll-smooth">
-      <HeroSection />
-      <WorkSection />
-      <PlaygroundSection />
-      <StackSection />
-      <ContactSection />
-    </main>
+    <>
+      <Navbar />
+      <main className="w-full">
+        <HeroSection />
+        <WorkSection />
+        <PlaygroundSection />
+        <StackSection />
+        <ContactSection />
+      </main>
+    </>
   );
 }

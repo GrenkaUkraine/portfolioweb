@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${tasaOrbiter.variable} ${azeretMono.variable} h-full antialiased`}
+      className={`${tasaOrbiter.variable} ${azeretMono.variable} h-full antialiased md:snap-y md:snap-mandatory scroll-smooth`}
     >
       <body
         className={`${tasaOrbiter.variable} ${azeretMono.variable} min-h-full bg-bg text-fg font-sans selection:bg-fg selection:text-bg`}
