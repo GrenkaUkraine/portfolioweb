@@ -11,4 +11,5 @@ export type Project = {
   stack: string[];
   links: ProjectLink[];
   tag?: string;
+  image?: string;
 };

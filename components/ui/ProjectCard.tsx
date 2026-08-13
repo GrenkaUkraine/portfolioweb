@@ -2,6 +2,7 @@ import React from "react";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { Project } from "@/types";
 
 export interface ProjectCardProps {
@@ -72,12 +73,33 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "border border-fg-50 flex flex-col justify-between relative group",
+        "border border-fg-50 flex flex-col justify-between relative group overflow-hidden",
         containerPadding,
         className
       )}
     >
-      <div>
+      {project.image && (
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <Image
+            src={project.image}
+            alt={`Render of ${project.title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover blur-md scale-110"
+          />
+
+          <div className="absolute inset-0 z-10 bg-black/30" />
+
+          <div
+            className="absolute inset-0 z-20"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, transparent 0%, #000000 80%)",
+            }}
+          />
+        </div>
+      )}
+      <div className="relative z-10">
         {variant === "small" && project.tag && (
           <Text variant="tag" color="subtle" className="mb-1">
             {project.tag}
@@ -102,7 +124,7 @@ export default function ProjectCard({
         </Text>
       </div>
 
-      <div className="flex items-end justify-between gap-4">
+      <div className="relative z-10 flex items-end justify-between gap-4">
         <div>
           <Text variant="tag" color="subtle" className="mb-1 block">
             Stack:
