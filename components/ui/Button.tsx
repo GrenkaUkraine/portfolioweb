@@ -4,7 +4,7 @@ import Text from "./Text";
 import { cva, VariantProps } from "class-variance-authority";
 
 const buttonVariants = cva(
-  "group inline-flex items-center justify-between h-13 w-full px-4 md:h-17 md:px-5 cursor-pointer transition-colors disabled:opacity-50 disabled:pointer-events-none border",
+  "group flex items-center justify-between h-13 w-full px-4 md:h-17 md:px-5 cursor-pointer transition-colors disabled:opacity-50 disabled:pointer-events-none border",
   {
     variants: {
       variant: {

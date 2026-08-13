@@ -26,7 +26,8 @@ export default function SectionContainer({
           : undefined
       }
       className={cn(
-        "min-h-screen md:h-screen md:snap-start flex flex-col items-center justify-center layout-page",
+        isHero ? "h-dvh" : "min-h-dvh md:h-dvh",
+        "md:snap-start flex flex-col items-center justify-center layout-page relative",
         className
       )}
     >

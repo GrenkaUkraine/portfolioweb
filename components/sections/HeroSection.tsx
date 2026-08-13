@@ -7,9 +7,9 @@ import SectionContainer from "@/components/sections/SectionContainer";
 export default function HeroSection() {
   return (
     <SectionContainer id="hero">
-      <div className="flex flex-col justify-between items-center h-full w-full">
-        <div className="grid w-full grid-cols-12 layout-gap">
-          <div className="col-span-8 flex flex-col gap-vh-sm">
+      <div className="flex flex-col justify-between items-center h-full w-full pt-20 md:pt-0">
+        <div className="grid w-full grid-cols-1 md:grid-cols-12 layout-gap">
+          <div className="md:col-span-8 flex flex-col gap-vh-sm">
             <div>
               <Text variant="h1">Creative</Text>
               <Text variant="h1">Developer</Text>
@@ -18,7 +18,7 @@ export default function HeroSection() {
               grenkaukraine.com | SITE IN DEVELOPMENT
             </Text>
           </div>
-          <div className="col-span-4 flex flex-col gap-3">
+          <div className="col-span-1 md:col-span-4 flex flex-col gap-3">
             {SOCIAL_LINKS.map((link) => (
               <Button
                 key={link.href}
@@ -28,6 +28,7 @@ export default function HeroSection() {
                 rightSlot={link.rightSlot}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-full"
               />
             ))}
           </div>
