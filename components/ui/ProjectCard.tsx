@@ -73,7 +73,7 @@ export default function ProjectCard({
   return (
     <div
       className={cn(
-        "border border-fg-50 flex flex-col justify-between relative group overflow-hidden",
+        "border border-fg-50 flex flex-col md:justify-between gap-6 md:gap-0 relative group overflow-hidden",
         containerPadding,
         className
       )}

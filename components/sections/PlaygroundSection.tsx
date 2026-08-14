@@ -9,6 +9,7 @@ import { Mousewheel } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import PageIndicator from "@/components/playground/PageIndicator";
+import Button from "@/components/ui/Button";
 
 export default function PlaygroundSection() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,6 +24,9 @@ export default function PlaygroundSection() {
     { length: Math.ceil(PLAYGROUND_PROJECTS.length / pageSize) },
     (_, i) => PLAYGROUND_PROJECTS.slice(i * pageSize, (i + 1) * pageSize)
   );
+
+  const MOBILE_STEP = 4;
+  const [visibleCount, setVisibleCount] = useState(MOBILE_STEP);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -67,7 +71,7 @@ export default function PlaygroundSection() {
     <SectionContainer id="playground">
       <div
         ref={containerRef}
-        className="relative w-full h-full min-h-0 max-h-full "
+        className="hidden md:block relative w-full h-full min-h-0 max-h-full"
       >
         <Swiper
           direction="horizontal"
@@ -111,6 +115,24 @@ export default function PlaygroundSection() {
           onPageChange={(index) => swiperRef.current?.slideTo(index)}
           className="absolute -right-6 md:-right-7 top-1/2 -translate-y-1/2 hidden md:flex"
         />
+      </div>
+
+      <div className="flex md:hidden flex-col gap-4 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {PLAYGROUND_PROJECTS.slice(0, visibleCount).map((project) => (
+            <ProjectCard key={project.id} project={project} variant="small" />
+          ))}
+        </div>
+
+        {visibleCount < PLAYGROUND_PROJECTS.length && (
+          <Button
+            variant="primary"
+            className="items-center justify-center"
+            onClick={() => setVisibleCount((prev) => prev + MOBILE_STEP)}
+          >
+            Load More ({PLAYGROUND_PROJECTS.length - visibleCount})
+          </Button>
+        )}
       </div>
     </SectionContainer>
   );
