@@ -22,7 +22,7 @@ export default function ContactSection() {
               — saves us both time.
             </Text>
           </div>
-          <div className="flex flex-col md:flex-row md:gap-3">
+          <div className="flex flex-col md:flex-row gap-3">
             <Button
               variant="primary"
               rightSlot="→"
