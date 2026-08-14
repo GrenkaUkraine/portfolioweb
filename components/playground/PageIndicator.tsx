@@ -26,7 +26,7 @@ export default function PageIndicator({
             type="button"
             onClick={() => onPageChange(index)}
             className={cn(
-              "transition-all duration-300 cursor-pointer fucus:outline-none w-2",
+              "transition-all duration-300 cursor-pointer focus:outline-none w-2",
               isActive ? "h-5 bg-fg" : "h-2 bg-fg-50 hover:bg-fg-70"
             )}
           />
