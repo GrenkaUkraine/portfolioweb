@@ -20,8 +20,8 @@ export default function Navbar() {
     if (!headerEl || !footerEl) return;
 
     const observer = new ResizeObserver(() => {
-      const hHeight = headerEl.offsetHeight;
-      const fHeight = footerEl.offsetHeight;
+      const hHeight = headerEl?.offsetHeight || 0;
+      const fHeight = footerEl?.offsetHeight || 0;
 
       document.documentElement.style.setProperty(
         "--header-height",
@@ -74,14 +74,14 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 pointer-events-none flex flex-col justify-between",
-        isHero ? "opacity-0" : "opacity-100"
+        "fixed flex inset-0 z-50 pointer-events-none flex-col justify-between",
+        isHero ? "opacity-100 md:opacity-0" : "opacity-100"
       )}
     >
       <header
         ref={headerRef}
         className={cn(
-          "w-full flex items-center gap-5 layout-page pb-8 bg-bg",
+          "w-full hidden md:flex items-center gap-5 layout-page pb-8 bg-bg",
           isHero ? "pointer-events-none" : "pointer-events-auto"
         )}
       >
@@ -97,14 +97,18 @@ export default function Navbar() {
         {activeNote && <Text variant="buttons">{activeNote}</Text>}
       </header>
 
+      <div className="md:hidden" />
+
       <footer
         ref={footerRef}
         className={cn(
-          "w-full flex items-center justify-between layout-page pt-8 bg-bg",
-          isHero ? "pointer-events-none" : "pointer-events-auto"
+          "w-full flex items-center justify-between layout-page md:pt-8 bg-bg",
+          isHero
+            ? "pointer-events-auto md:pointer-events-none"
+            : "pointer-events-auto"
         )}
       >
-        <Text variant="tag" color="muted">
+        <Text variant="tag" color="muted" className="hidden md:block">
           Scroll{" "}
           {nextHref ? (
             <a
@@ -129,7 +133,7 @@ export default function Navbar() {
           )}
         </Text>
 
-        <nav className="flex items-center gap-3">
+        <nav className="flex items-center justify-between w-full md:w-auto gap-2 md:gap-3">
           {NAV_LINKS.map((item) => {
             const isActive = activeSection === item.href.replace("#", "");
             return (
