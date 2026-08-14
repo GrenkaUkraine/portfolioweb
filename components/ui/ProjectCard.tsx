@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Text from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -18,6 +20,8 @@ export default function ProjectCard({
   isLast,
   className,
 }: ProjectCardProps) {
+  const [hoveredLinkIndex, setHoveredLinkIndex] = useState<number | null>(null);
+
   const isSmall = variant === "small";
 
   const containerPadding = isSmall ? "p-3 md:p-5" : "p-5 md:p-8";
@@ -72,10 +76,21 @@ export default function ProjectCard({
 
   const hasImage = Boolean(project.image);
 
+  const mainHref = project.links?.[0]?.href;
+
+  const handleCardClick = (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).closest("a")) return;
+
+    if (mainHref) {
+      window.open(mainHref, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div
+      onClick={handleCardClick}
       className={cn(
-        "border border-fg-50 flex flex-col md:justify-between gap-6 md:gap-0 relative group overflow-hidden",
+        "border border-fg-50 flex flex-col md:justify-between gap-6 md:gap-0 relative group overflow-hidden cursor-pointer",
         containerPadding,
         className
       )}
@@ -147,23 +162,34 @@ export default function ProjectCard({
         </div>
 
         <div className="flex flex-col items-end gap-1">
-          {project.links.map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors  group-hover:bg-fg hover:cursor-pointer py-0.5 group-hover:border-fg border-2 border-transparent"
-            >
-              <Text
-                variant="system"
-                color="muted"
-                className="transition-colors text-right group-hover:text-bg hover:underline"
+          {project.links.map((link, index) => {
+            const isUnderlined =
+              hoveredLinkIndex === index ||
+              (index === 0 && hoveredLinkIndex === null);
+
+            return (
+              <Link
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onMouseEnter={() => setHoveredLinkIndex(index)}
+                onMouseLeave={() => setHoveredLinkIndex(null)}
+                className="transition-colors  group-hover:bg-fg hover:cursor-pointer py-0.5 group-hover:border-fg border-2 border-transparent"
               >
-                {link.title}
-              </Text>
-            </Link>
-          ))}
+                <Text
+                  variant="system"
+                  color="muted"
+                  className={cn(
+                    "transition-colors text-right group-hover:text-bg",
+                    isUnderlined && "group-hover:underline"
+                  )}
+                >
+                  {link.title}
+                </Text>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
