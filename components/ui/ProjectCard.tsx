@@ -70,6 +70,8 @@ export default function ProjectCard({
 
   if (!project) return null;
 
+  const hasImage = Boolean(project.image);
+
   return (
     <div
       className={cn(
@@ -85,13 +87,13 @@ export default function ProjectCard({
             alt={`Render of ${project.title}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover blur-md scale-110"
+            className="object-cover blur-md scale-110 transition-all duration-500 group-hover:blur-none group-hover:scale-100"
           />
 
-          <div className="absolute inset-0 z-10 bg-black/30" />
+          <div className="absolute inset-0 z-10 bg-black/30 transition-opacity duration-500 group-hover:opacity-0" />
 
           <div
-            className="absolute inset-0 z-20"
+            className="absolute inset-0 z-20 transition-opacity duration-500 group-hover:opacity-0"
             style={{
               background:
                 "radial-gradient(ellipse at center, transparent 0%, #000000 80%)",
@@ -99,7 +101,13 @@ export default function ProjectCard({
           />
         </div>
       )}
-      <div className="relative z-10">
+      <div
+        className={cn(
+          "relative z-10 transition-all duration-500",
+          hasImage &&
+            "group-hover:opacity-0 group-hover:blur-md group-hover:pointer-events-none"
+        )}
+      >
         {variant === "small" && project.tag && (
           <Text variant="tag" color="subtle" className="mb-1">
             {project.tag}
@@ -125,7 +133,13 @@ export default function ProjectCard({
       </div>
 
       <div className="relative z-10 flex items-end justify-between gap-4">
-        <div>
+        <div
+          className={cn(
+            "transition-all duration-500",
+            hasImage &&
+              "group-hover:opacity-0 group-hover:blur-md group-hover:pointer-events-none"
+          )}
+        >
           <Text variant="tag" color="subtle" className="mb-1 block">
             Stack:
           </Text>
@@ -139,11 +153,12 @@ export default function ProjectCard({
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
+              className="transition-colors  group-hover:bg-fg hover:cursor-pointer py-0.5 group-hover:border-fg border-2 border-transparent"
             >
               <Text
                 variant="system"
                 color="muted"
-                className="transition-colors hover:text-fg text-right"
+                className="transition-colors text-right group-hover:text-bg hover:underline"
               >
                 {link.title}
               </Text>
