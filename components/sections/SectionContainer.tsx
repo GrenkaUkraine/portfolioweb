@@ -19,7 +19,7 @@ export default function SectionContainer({
       id={id}
       className={cn(
         isHero ? "h-dvh" : "md:h-dvh",
-        "md:snap-start flex flex-col items-center justify-center layout-page relative",
+        "md:snap-start max-w-full flex flex-col items-center justify-center layout-page relative",
         !isHero && [
           "md:pt-[var(--header-height,60px)] md:pb-[var(--footer-height,60px)]",
           "py-10",

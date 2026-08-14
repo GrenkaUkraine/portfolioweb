@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="w-full">
+      <main className="w-full max-w-full">
         <HeroSection />
         <WorkSection />
         <PlaygroundSection />

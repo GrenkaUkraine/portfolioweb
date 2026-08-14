@@ -74,7 +74,7 @@ export default function Navbar() {
   return (
     <div
       className={cn(
-        "fixed flex inset-0 z-50 pointer-events-none flex-col justify-between",
+        "fixed flex w-full max-w-full inset-0 z-50 pointer-events-none flex-col justify-between",
         isHero ? "opacity-100 md:opacity-0" : "opacity-100"
       )}
     >
