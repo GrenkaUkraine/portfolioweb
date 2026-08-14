@@ -105,7 +105,7 @@ export default function ProjectCard({
             {project.tag}
           </Text>
         )}
-        <div className="flex items-start justify-between gap-2 mb-2">
+        <div className="flex flex-col md:flex-row items-start justify-between gap-2 mb-2">
           <Text variant={titleVariant} as="h2">
             {project.title}
           </Text>
@@ -113,7 +113,7 @@ export default function ProjectCard({
             <Text
               variant="system"
               color="subtle"
-              className="text-right whitespace-pre-line"
+              className="md:text-right md:whitespace-pre-line w-full md:w-auto"
             >
               {project.note}
             </Text>
@@ -143,7 +143,7 @@ export default function ProjectCard({
               <Text
                 variant="system"
                 color="muted"
-                className="transition-colors hover:text-fg"
+                className="transition-colors hover:text-fg text-right"
               >
                 {link.title}
               </Text>
