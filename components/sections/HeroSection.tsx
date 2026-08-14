@@ -3,6 +3,7 @@ import { NAV_LINKS, SOCIAL_LINKS } from "@/config/constants";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import SectionContainer from "@/components/sections/SectionContainer";
+import NavLink from "../hero/NavLink";
 
 export default function HeroSection() {
   return (
@@ -39,21 +40,7 @@ export default function HeroSection() {
           </Text>
           <nav className="w-full flex flex-col gap-vh-sm">
             {NAV_LINKS.map((item) => (
-              <a
-                key={item.id}
-                href={item.href}
-                className="w-full inline-flex gap-3 items-center group"
-              >
-                <Text variant="list-nums" color="subtle">
-                  {item.id} &gt;
-                </Text>
-                <Text
-                  variant="list-link"
-                  className="group-hover:translate-x-1 transition-transform"
-                >
-                  {item.label}
-                </Text>
-              </a>
+              <NavLink key={item.id} {...item} />
             ))}
           </nav>
         </div>
