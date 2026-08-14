@@ -7,7 +7,7 @@ import SlashDivider from "@/components/stack/SlashDivider";
 export default function StackSection() {
   return (
     <SectionContainer id="stack">
-      <div className="flex flex-col gap-vh-lg w-full h-full max-h-full overflow-y-auto no-scrollbar">
+      <div className="flex flex-col gap-vh-lg w-full h-auto md:h-full md:max-h-full md:overflow-y-auto md:no-scrollbar">
         {STACK.map((section) => (
           <div key={section.category}>
             <Text variant="tag" color="muted" className="mb-3">
