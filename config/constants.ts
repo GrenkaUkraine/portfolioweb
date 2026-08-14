@@ -176,7 +176,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Military C4 setup with detailed PCB, display, and wires.",
     stack: ["Blender", "Substance"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/092/652/949/medium/grenkaukraine-render1.webp?1760280583"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/092/652/949/medium/grenkaukraine-render1.webp?1760280583",
   },
   {
     id: "atb-supermarket",
@@ -185,7 +186,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Exterior architectural render of a local ATB supermarket.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/078/761/063/medium/grenka-ukraine-bee-baran-y-atb.jpg?1723010338"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/078/761/063/medium/grenka-ukraine-bee-baran-y-atb.jpg?1723010338",
   },
   {
     id: "retro-crt-monitor",
@@ -194,7 +196,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Nostalgic setup featuring an old-school CRT monitor.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/075/852/399/medium/grenka-ukraine-render2.jpg?1715609784"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/075/852/399/medium/grenka-ukraine-render2.jpg?1715609784",
   },
   {
     id: "coca-cola",
@@ -203,7 +206,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Commercial product render with glass condensation.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdna.artstation.com/p/assets/images/images/075/852/288/medium/grenka-ukraine-render3-photoshop.jpg?1715609636"
+    image:
+      "https://cdna.artstation.com/p/assets/images/images/075/852/288/medium/grenka-ukraine-render3-photoshop.jpg?1715609636",
   },
   {
     id: "traffic-light",
@@ -212,7 +216,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Atmospheric urban prop with lens bloom and shaders.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdna.artstation.com/p/assets/images/images/087/394/482/medium/grenka-ukraine-traffic-light.jpg?1745672502"
+    image:
+      "https://cdna.artstation.com/p/assets/images/images/087/394/482/medium/grenka-ukraine-traffic-light.jpg?1745672502",
   },
   {
     id: "liminal-pool-room",
@@ -221,7 +226,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Eerie liminal space environment with water reflections.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/075/852/087/medium/grenka-ukraine-day-ps.jpg?1715609320"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/075/852/087/medium/grenka-ukraine-day-ps.jpg?1715609320",
   },
   {
     id: "iced-coffee-drink",
@@ -230,7 +236,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     description: "Close-up food render with micro-details and condensation.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/075/852/547/medium/grenka-ukraine-2-r.jpg?1715610016"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/075/852/547/medium/grenka-ukraine-2-r.jpg?1715610016",
   },
   {
     id: "diamond-reflection",
@@ -240,7 +247,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
       "High-dispersion glass study focusing on caustics and refraction.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdnb.artstation.com/p/assets/images/images/087/394/651/medium/grenka-ukraine-diamond.jpg?1745673014"
+    image:
+      "https://cdnb.artstation.com/p/assets/images/images/087/394/651/medium/grenka-ukraine-diamond.jpg?1745673014",
   },
   {
     id: "barbed-wire-heart",
@@ -250,7 +258,8 @@ export const PLAYGROUND_PROJECTS: Project[] = [
       "Abstract concept art of a stylized heart bound by barbed wire.",
     stack: ["Blender"],
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
-    image: "https://cdna.artstation.com/p/assets/images/images/087/394/676/medium/grenka-ukraine-renderv2.jpg?1745673113"
+    image:
+      "https://cdna.artstation.com/p/assets/images/images/087/394/676/medium/grenka-ukraine-renderv2.jpg?1745673113",
   },
 ];
 
