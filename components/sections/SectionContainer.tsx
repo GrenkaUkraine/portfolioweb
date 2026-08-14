@@ -17,17 +17,13 @@ export default function SectionContainer({
   return (
     <section
       id={id}
-      style={
-        !isHero
-          ? {
-              paddingTop: "var(--header-height, 60px)",
-              paddingBottom: "var(--footer-height, 60px)",
-            }
-          : undefined
-      }
       className={cn(
-        isHero ? "h-dvh" : "min-h-dvh md:h-dvh",
+        isHero ? "h-dvh" : "md:h-dvh",
         "md:snap-start flex flex-col items-center justify-center layout-page relative",
+        !isHero && [
+          "md:pt-[var(--header-height,60px)] md:pb-[var(--footer-height,60px)]",
+          "py-10",
+        ],
         className
       )}
     >
