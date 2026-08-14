@@ -22,13 +22,13 @@ export default function HeroSection() {
             {SOCIAL_LINKS.map((link) => (
               <Button
                 key={link.href}
-                as={Link}
                 href={link.href}
                 title={link.title}
                 rightSlot={link.rightSlot}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full"
+                hoverTitle="Open ↗"
               />
             ))}
           </div>

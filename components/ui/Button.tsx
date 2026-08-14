@@ -1,7 +1,13 @@
+"use client";
+
 import React from "react";
 import { cn } from "@/lib/utils";
 import Text from "./Text";
 import { cva, VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 const buttonVariants = cva(
   "group flex items-center justify-between h-13 w-full px-4 md:h-17 md:px-5 cursor-pointer transition-colors disabled:opacity-50 disabled:pointer-events-none border",
@@ -9,7 +15,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "border-fg-50 bg-bg hover:border-fg",
-        primary: "border-fg bg-fg hover:bg-bg",
+        primary: "border-fg bg-fg",
       },
     },
     defaultVariants: {
@@ -22,7 +28,7 @@ const titleVariants = cva("transition-colors", {
   variants: {
     variant: {
       default: "text-fg",
-      primary: "text-bg group-hover:text-fg",
+      primary: "text-bg",
     },
   },
   defaultVariants: {
@@ -34,7 +40,7 @@ const rightSlotVariants = cva("transition-colors", {
   variants: {
     variant: {
       default: "text-fg-50 group-hover:text-fg",
-      primary: "text-bg group-hover:text-fg",
+      primary: "text-bg",
     },
   },
   defaultVariants: {
@@ -42,11 +48,31 @@ const rightSlotVariants = cva("transition-colors", {
   },
 });
 
+const textPrimaryVariants = {
+  initial: { y: "0%", opacity: 1 },
+  hover: { y: "-100%", opacity: 0 },
+};
+
+const textHoverVariants = {
+  initial: { y: "100%", opacity: 0 },
+  hover: { y: "0%", opacity: 1 },
+};
+
+const slotMotionVariants = {
+  initial: { x: 0 },
+  hover: { x: 5 },
+};
+
 export interface BaseButtonProps extends VariantProps<typeof buttonVariants> {
   title?: React.ReactNode;
+  hoverTitle?: React.ReactNode;
   rightSlot?: React.ReactNode;
+  shiftSlot?: boolean;
   className?: string;
   children?: React.ReactNode;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export type ButtonProps<T extends React.ElementType = "button"> =
@@ -58,27 +84,76 @@ export type ButtonProps<T extends React.ElementType = "button"> =
 export default function Button<T extends React.ElementType = "button">({
   as,
   title,
+  hoverTitle,
   rightSlot,
+  shiftSlot = false,
   variant,
   className,
   children,
+  href,
   ...props
 }: ButtonProps<T>) {
-  const Component = as || "button";
+  const mainText = title || children;
+
+  let MotionComponent: React.ElementType = motion.button;
+
+  if (href) {
+    MotionComponent = MotionLink;
+  } else if (typeof as === "string" && as in motion) {
+    MotionComponent = motion[as as keyof typeof motion] as React.ElementType;
+  } else if (as && typeof as === "string") {
+    MotionComponent = as;
+  }
 
   return (
-    <Component
+    <MotionComponent
+      href={href}
+      initial="initial"
+      whileHover="hover"
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
       className={cn(buttonVariants({ variant }), className)}
       {...props}
     >
-      <Text variant="buttons" className={titleVariants({ variant })}>
-        {title || children}
-      </Text>
+      <div className="relative overflow-hidden">
+        {hoverTitle ? (
+          <>
+            <motion.div
+              variants={textPrimaryVariants}
+              transition={{ duration: 0.25 }}
+            >
+              <Text variant="buttons" className={titleVariants({ variant })}>
+                {mainText}
+              </Text>
+            </motion.div>
+
+            <motion.div
+              variants={textHoverVariants}
+              transition={{ duration: 0.25 }}
+              className="absolute inset-0 flex items-center"
+            >
+              <Text variant="buttons" className={titleVariants({ variant })}>
+                {hoverTitle}
+              </Text>
+            </motion.div>
+          </>
+        ) : (
+          <Text variant="buttons" className={titleVariants({ variant })}>
+            {mainText}
+          </Text>
+        )}
+      </div>
+
       {rightSlot && (
-        <Text variant="system" className={rightSlotVariants({ variant })}>
-          {rightSlot}
-        </Text>
+        <motion.div
+          variants={shiftSlot ? slotMotionVariants : undefined}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
+          <Text variant="system" className={rightSlotVariants({ variant })}>
+            {rightSlot}
+          </Text>
+        </motion.div>
       )}
-    </Component>
+    </MotionComponent>
   );
 }

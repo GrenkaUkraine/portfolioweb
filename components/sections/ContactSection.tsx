@@ -27,10 +27,15 @@ export default function ContactSection() {
               variant="primary"
               rightSlot="→"
               className="w-full md:w-auto gap-7"
+              shiftSlot
             >
               Telegram [@grenkaukraine]
             </Button>
-            <Button rightSlot="→" className="w-full md:w-auto md:gap-7">
+            <Button
+              rightSlot="→"
+              className="w-full md:w-auto md:gap-7"
+              shiftSlot
+            >
               Discord
             </Button>
           </div>
@@ -52,12 +57,12 @@ export default function ContactSection() {
             {SOCIAL_LINKS.map((link) => (
               <Button
                 key={link.href}
-                as={Link}
                 href={link.href}
                 title={link.title}
                 rightSlot={link.rightSlot}
                 target="_blank"
                 rel="noopener noreferrer"
+                hoverTitle="Open ↗"
               />
             ))}
           </div>
