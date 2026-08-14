@@ -42,7 +42,7 @@ export default function UkraineTime() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-3 items-end">
+    <div className="hidden md:flex flex-col gap-3 items-end">
       <Text variant="cards-description" color="muted">
         I&#39;m in{" "}
         <b className="text-fg">
