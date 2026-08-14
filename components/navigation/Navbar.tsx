@@ -5,6 +5,8 @@ import Text from "@/components/ui/Text";
 import { NAV_LINKS, SECTION_IDS, SECTIONS_CONFIG } from "@/config/constants";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
+import { AnimatePresence } from "framer-motion";
+import SlotText from "@/components/ui/SlotText";
 
 export default function Navbar() {
   const activeSection = useActiveSection(SECTION_IDS);
@@ -71,30 +73,63 @@ export default function Navbar() {
   const prevHref =
     currentIndex > 0 ? NAV_LINKS[currentIndex - 1].href : "#hero";
 
+  const [sections, setSections] = useState({
+    prev: activeSection,
+    current: activeSection,
+  });
+
+  if (sections.current !== activeSection) {
+    setSections({
+      prev: sections.current,
+      current: activeSection,
+    });
+  }
+
+  const skipAnimation = activeSection === "hero" || sections.prev === "hero";
+
   return (
-    <div
-      className={cn(
-        "fixed flex w-full max-w-full inset-0 z-50 pointer-events-none flex-col justify-between",
-        isHero ? "opacity-100 md:opacity-0" : "opacity-100"
-      )}
-    >
+    <div className="fixed flex w-full max-w-full inset-0 z-50 pointer-events-none flex-col justify-between">
       <header
         ref={headerRef}
         className={cn(
-          "w-full hidden md:flex items-center gap-5 layout-page pb-8 bg-bg",
-          isHero ? "pointer-events-none" : "pointer-events-auto"
+          "w-full hidden md:flex items-center gap-5 layout-page pb-8 bg-bg transition-all duration-500 ease-out",
+          isHero
+            ? "opacity-0 -translate-y-4 pointer-events-none"
+            : "opacity-100 translate-y-0 pointer-events-auto"
         )}
       >
-        <div className="flex items-center gap-2">
-          <Text variant="buttons" color="subtle">
-            {currentConfig.index} {"//"}
-          </Text>
-          <Text variant="buttons" color="subtle">
-            {currentConfig.title}
-          </Text>
-        </div>
+        {skipAnimation ? (
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-2">
+              <Text variant="buttons" color="subtle">
+                {currentConfig.index} {"//"}
+              </Text>
+              <Text variant="buttons" color="subtle">
+                {currentConfig.title}
+              </Text>
+            </div>
+            {activeNote && <Text variant="buttons">{activeNote}</Text>}
+          </div>
+        ) : (
+          <AnimatePresence mode="wait">
+            <div key={activeSection} className="flex items-center gap-5">
+              <div className="flex items-center gap-2">
+                <SlotText
+                  text={`${currentConfig.index} //`}
+                  variant="buttons"
+                  color="subtle"
+                />
+                <SlotText
+                  text={currentConfig.title}
+                  variant="buttons"
+                  color="subtle"
+                />
+              </div>
 
-        {activeNote && <Text variant="buttons">{activeNote}</Text>}
+              {activeNote && <SlotText text={activeNote} variant="buttons" />}
+            </div>
+          </AnimatePresence>
+        )}
       </header>
 
       <div className="md:hidden" />
@@ -102,10 +137,10 @@ export default function Navbar() {
       <footer
         ref={footerRef}
         className={cn(
-          "w-full flex items-center justify-between layout-page md:pt-8 bg-bg",
+          "w-full flex items-center justify-between layout-page md:pt-8 bg-bg md:transition-all md:duration-500 md:ease-out",
           isHero
-            ? "pointer-events-auto md:pointer-events-none"
-            : "pointer-events-auto"
+            ? "pointer-events-auto md:opacity-0 md:translate-y-4 md:pointer-events-none"
+            : "pointer-events-auto opacity-100 translate-y-0"
         )}
       >
         <Text variant="tag" color="muted" className="hidden md:block">
