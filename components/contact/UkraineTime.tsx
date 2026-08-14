@@ -2,6 +2,7 @@
 
 import Text from "@/components/ui/Text";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function UkraineTime() {
   const [timeState, setTimeState] = useState<{
@@ -41,6 +42,10 @@ export default function UkraineTime() {
     return () => clearInterval(interval);
   }, []);
 
+  const timeChars = timeState
+    ? timeState.time.split("")
+    : ["-", "-", ":", "-", "-"];
+
   return (
     <div className="hidden md:flex flex-col gap-3 items-end">
       <Text variant="cards-description" color="muted">
@@ -49,7 +54,31 @@ export default function UkraineTime() {
           Ukraine ({timeState ? timeState.offset : "UTC+3"})
         </b>
       </Text>
-      <Text variant="h1">{timeState ? timeState.time : "--:--"}</Text>
+      <div className="flex items-center overflow-hidden tabular-nums">
+        {timeChars.map((char, index) => (
+          <div
+            key={index}
+            className="relative overflow-hidden flex justify-center"
+          >
+            <AnimatePresence mode="popLayout" initial={false}>
+              <motion.span
+                key={char}
+                initial={{ y: "100%" }}
+                animate={{ y: "0%" }}
+                exit={{ y: "-100%" }}
+                transition={{
+                  type: "spring",
+                  stiffness: 450,
+                  damping: 30,
+                }}
+                className="inline-block"
+              >
+                <Text variant="h1">{char}</Text>
+              </motion.span>
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
