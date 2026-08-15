@@ -19,13 +19,13 @@ export const SOCIAL_LINKS = [
   {
     title: "3D Models",
     rightSlot: "[ArtStation]",
-    href: "https://artstation.com",
+    href: "https://artstation.com/grenkaukraine",
   },
-  {
-    title: "Designs",
-    rightSlot: "[Behance]",
-    href: "https://behance.net",
-  },
+  // {
+  //   title: "Designs",
+  //   rightSlot: "[Behance]",
+  //   href: "https://behance.net",
+  // },
 ] as const;
 
 export const NAV_LINKS = [
