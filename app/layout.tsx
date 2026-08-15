@@ -13,9 +13,37 @@ const azeretMono = Azeret_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://grenkaukraine.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "GRENKAUKRAINE // CREATIVE DEVELOPER",
-  description: "Portfolio",
+  description: "Portfolio of Creative Developer — grenkaukraine.com",
+
+  openGraph: {
+    title: "GRENKAUKRAINE // CREATIVE DEVELOPER",
+    description: "Portfolio of Creative Developer — grenkaukraine.com",
+    url: SITE_URL,
+    siteName: "GRENKAUKRAINE",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "GRENKAUKRAINE - Creative Developer Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "GRENKAUKRAINE // CREATIVE DEVELOPER",
+    description: "Portfolio of Creative Developer — grenkaukraine.com",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
