@@ -91,6 +91,8 @@ export default function Button<T extends React.ElementType = "button">({
   className,
   children,
   href,
+  target,
+  rel,
   ...props
 }: ButtonProps<T>) {
   const mainText = title || children;
@@ -105,9 +107,13 @@ export default function Button<T extends React.ElementType = "button">({
     MotionComponent = as;
   }
 
+  const computedRel = target === "_blank" && !rel ? "noopener noreferrer" : rel;
+
   return (
     <MotionComponent
       href={href}
+      target={target}
+      rel={computedRel}
       initial="initial"
       whileHover="hover"
       whileTap={{ scale: 0.98 }}
