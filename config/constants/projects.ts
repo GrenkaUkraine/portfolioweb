@@ -1,42 +1,5 @@
 import { Project } from "@/types";
 
-export const SECTIONS_CONFIG: Record<
-  string,
-  { index: string; title: string; note?: string }
-> = {
-  work: { index: "01", title: "Work", note: "3 Featured Projects" },
-  playground: { index: "02", title: "Playground" },
-  stack: { index: "03", title: "Stack", note: "" },
-  contact: { index: "04", title: "Contact", note: "" },
-};
-
-export const SECTION_IDS = ["hero", "work", "playground", "stack", "contact"];
-
-export const SOCIAL_LINKS = [
-  {
-    title: "Codebase",
-    rightSlot: "[GitHub]",
-    href: "https://github.com/GrenkaUkraine",
-  },
-  {
-    title: "3D Models",
-    rightSlot: "[ArtStation]",
-    href: "https://artstation.com",
-  },
-  {
-    title: "Designs",
-    rightSlot: "[Behance]",
-    href: "https://behance.net",
-  },
-] as const;
-
-export const NAV_LINKS = [
-  { id: "1", label: "Work", href: "#work" },
-  { id: "2", label: "Playground", href: "#playground" },
-  { id: "3", label: "Stack", href: "#stack" },
-  { id: "4", label: "Contact", href: "#contact" },
-] as const;
-
 export const FEATURED_PROJECTS: Project[] = [
   {
     id: "prph",
@@ -260,34 +223,5 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     links: [{ title: "[ArtStation]", href: "https://artstation.com" }],
     image:
       "https://cdna.artstation.com/p/assets/images/images/087/394/676/medium/grenka-ukraine-renderv2.jpg?1745673113",
-  },
-];
-
-export const STACK = [
-  {
-    category: "Web & Desktop Apps",
-    objects: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "Tauri",
-      "REST API",
-      "SQLite",
-      "Vercel",
-    ],
-  },
-  {
-    category: "Gamedev & Systems",
-    objects: ["Java", "Gradle", "Minecraft API", "Unity", "C#", ".NET", "Rust"],
-  },
-  {
-    category: "3D Art & Graphics",
-    objects: ["Blender", "Substance Painter"],
-  },
-  {
-    category: "Design & Tools",
-    objects: ["Figma", "Git", "GitHub"],
   },
 ];
