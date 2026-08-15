@@ -28,7 +28,7 @@ export const FEATURED_PROJECTS: Project[] = [
     links: [
       {
         title: "[GitHub repo]",
-        href: "https://github.com/GrenkaUkraine",
+        href: "https://github.com/GrenkaUkraine/portfolioweb",
       },
     ],
   },
