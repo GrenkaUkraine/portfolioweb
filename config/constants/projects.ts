@@ -201,7 +201,7 @@ export const PLAYGROUND_PROJECTS: Project[] = [
     id: "coca-cola",
     title: "Coca-Cola",
     tag: "3D Render",
-    description: "Commercial product render with glass condensation.",
+    description: "Product render with glass condensation.",
     stack: ["Blender"],
     links: [
       {
