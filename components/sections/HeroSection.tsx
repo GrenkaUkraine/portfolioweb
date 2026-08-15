@@ -15,7 +15,7 @@ export default function HeroSection() {
               <Text variant="h1">Developer</Text>
             </div>
             <Text variant="system" color="muted">
-              grenkaukraine.com | SITE IN DEVELOPMENT
+              grenkaukraine.com
             </Text>
           </div>
           <div className="col-span-1 md:col-span-4 flex flex-col gap-3">
