@@ -27,6 +27,8 @@ export default function ContactSection() {
               variant="primary"
               rightSlot="→"
               href="https://t.me/GrenkaUkraine"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full md:w-auto gap-7"
               shiftSlot
             >
@@ -35,6 +37,8 @@ export default function ContactSection() {
             <Button
               rightSlot="→"
               className="w-full md:w-auto md:gap-7"
+              target="_blank"
+              rel="noopener noreferrer"
               href="https://discord.com/users/574981490924847105"
               shiftSlot
             >
